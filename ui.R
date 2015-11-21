@@ -11,7 +11,7 @@ shinyUI(fluidPage(verticalLayout(
                                   "Consectutive Runs", 
                                   min = 2, 
                                   max = 20, 
-                                  value = 2)),
+                                  value = 8)),
             mainPanel(h4("Take a look at the changing boxplots while seeing the experiment's true Max, 75th Quantile, Mean, 25th Quantile, & Min.")),
             plotOutput("aboutPlot")
             
