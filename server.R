@@ -30,7 +30,7 @@ shinyServer(function(input, output) {
     # draw a plot showing changes occurring throughout consectutive runs per experiment
     g <- ggplot(tabl, aes(x = Run, y = Speed)) + geom_point(shape = 1) + geom_smooth(method=lm) +
         xlim(c(1,max(morley$Run))) + facet_grid(. ~ Expt) + 
-        xlab("Runs in each Block") + ylab("Speed of Light (km/s minus 299,000)")
+        xlab("Runs in each Block") + ylab("Speed of Light km/s (minus 299,000)")
     g
   })
     output$aboutPlot <- renderPlot({
@@ -56,7 +56,7 @@ shinyServer(function(input, output) {
         dd <- tabl %>% group_by(Expt) %>% ggplot() + 
             geom_boxplot(outlier.size = 4, aes(Run,Speed, fill = factor(Expt))) + 
             facet_grid(. ~ Expt) + scale_fill_brewer(palette="Set2") +
-            xlim(c(1,max(morley$Run))) + xlab("Runs in each Block") + ylab("Speed of Light (km/s minus 299,000)") +
+            xlim(c(1,max(morley$Run))) + xlab("Runs in each Block") + ylab("Speed of Light km/s (minus 299,000)") +
             guides(fill=F)
         dd
         # build a comparison table
